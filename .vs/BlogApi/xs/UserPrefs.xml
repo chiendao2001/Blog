@@ -1,0 +1,76 @@
+﻿<Properties StartupConfiguration="BlogApi.Api">
+  <MonoDevelop.Ide.ItemProperties.BlogApi.Api PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BlogApi.Core/Models/User.cs">
+    <Files>
+      <File FileName="BlogApi.Api/Program.cs" Line="16" Column="1" />
+      <File FileName="BlogApi.Api/Controllers/CommentController.cs" Line="56" Column="14" />
+      <File FileName="BlogApi.Api/Controllers/BlogController.cs" Line="58" Column="31" />
+      <File FileName="BlogApi.Api/Controllers/UserController.cs" Line="60" Column="10" />
+      <File FileName="BlogApi.Core/Services/IUserService.cs" Line="14" Column="13" />
+      <File FileName="BlogApi.Services/UserService.cs" Line="38" Column="20" />
+      <File FileName="BlogApi.Api/Startup.cs" Line="33" Column="40" />
+      <File FileName="BlogApi.Core/Services/IBlogService.cs" Line="17" Column="1" />
+      <File FileName="BlogApi.Services/BlogService.cs" Line="42" Column="20" />
+      <File FileName="BlogApi.Core/Repositories/IBlogRepository.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Infrastructure/Repositories/BlogRepository.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Infrastructure/Repositories/Repository.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Core/Repositories/IUserRepository.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Core/Repositories/IRepository.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Infrastructure/UnitOfWork.cs" Line="27" Column="20" />
+      <File FileName="BlogApi.Core/Repositories/IUnitOfWork.cs" Line="12" Column="9" />
+      <File FileName="BlogApi.Services/CommentService.cs" Line="17" Column="10" />
+      <File FileName="BlogApi.Infrastructure/Repositories/UserRepository.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Core/Services/ICommentService.cs" Line="14" Column="13" />
+      <File FileName="BlogApi.Core/Models/User.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Api/Mapping/MappingProfile.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Api/Resources/UserResource.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Api/Resources/BlogResource.cs" Line="1" Column="1" />
+      <File FileName="BlogApi.Api/Resources/CommentResource.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BlogApi" expanded="True">
+            <Node name="BlogApi.Api" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Mapping" expanded="True" />
+              <Node name="Resources" expanded="True" />
+            </Node>
+            <Node name="BlogApi.Core" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="User.cs" selected="True" />
+              </Node>
+              <Node name="Repositories" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="BlogApi.Infrastructure" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Configurations" expanded="True" />
+              <Node name="Repositories" expanded="True" />
+            </Node>
+            <Node name="BlogApi.Services" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.BlogApi.Services PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>BlogApi/BlogApi.Api.csproj</String>
+    <String>Services/BlogApi.Services.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.BlogApi.Infrastructure PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="BlogApi.Api" Name="BlogApi.Api">
+      <Items>
+        <StartupItem ItemId="{252EA784-522F-4FEA-9E32-3850B8436D40}" ItemName="BlogApi.Api" ConfigurationId="BlogApi" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>

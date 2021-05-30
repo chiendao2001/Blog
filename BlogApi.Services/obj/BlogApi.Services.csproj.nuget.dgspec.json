@@ -1,0 +1,122 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/chiendao/Desktop/BlogApi/BlogApi.Services/BlogApi.Services.csproj": {}
+  },
+  "projects": {
+    "/Users/chiendao/Desktop/BlogApi/BlogApi.Core/BlogApi.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/chiendao/Desktop/BlogApi/BlogApi.Core/BlogApi.Core.csproj",
+        "projectName": "BlogApi.Core",
+        "projectPath": "/Users/chiendao/Desktop/BlogApi/BlogApi.Core/BlogApi.Core.csproj",
+        "packagesPath": "/Users/chiendao/.nuget/packages/",
+        "outputPath": "/Users/chiendao/Desktop/BlogApi/BlogApi.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/chiendao/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/chiendao/Desktop/BlogApi/BlogApi.Services/BlogApi.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/chiendao/Desktop/BlogApi/BlogApi.Services/BlogApi.Services.csproj",
+        "projectName": "BlogApi.Services",
+        "projectPath": "/Users/chiendao/Desktop/BlogApi/BlogApi.Services/BlogApi.Services.csproj",
+        "packagesPath": "/Users/chiendao/.nuget/packages/",
+        "outputPath": "/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/chiendao/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/Users/chiendao/Desktop/BlogApi/BlogApi.Core/BlogApi.Core.csproj": {
+                "projectPath": "/Users/chiendao/Desktop/BlogApi/BlogApi.Core/BlogApi.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

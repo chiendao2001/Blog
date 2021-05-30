@@ -1,0 +1,15 @@
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/BlogApi.Services.csprojAssemblyReference.cache
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/BlogApi.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/BlogApi.Services.AssemblyInfoInputs.cache
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/BlogApi.Services.AssemblyInfo.cs
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/BlogApi.Services.csproj.CoreCompileInputs.cache
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/bin/Debug/net5.0/BlogApi.Services.deps.json
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/bin/Debug/net5.0/BlogApi.Services.dll
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/bin/Debug/net5.0/ref/BlogApi.Services.dll
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/bin/Debug/net5.0/BlogApi.Services.pdb
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/bin/Debug/net5.0/BlogApi.Core.dll
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/bin/Debug/net5.0/BlogApi.Core.pdb
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/BlogApi.Services.csproj.CopyComplete
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/BlogApi.Services.dll
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/ref/BlogApi.Services.dll
+/Users/chiendao/Desktop/BlogApi/BlogApi.Services/obj/Debug/net5.0/BlogApi.Services.pdb
