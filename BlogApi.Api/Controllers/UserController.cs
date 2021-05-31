@@ -26,46 +26,98 @@ namespace BlogApi.Controllers
 
         //GET: api/values
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserResource>>> GetAllComments()
+        public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _userService.GetAllUsers();
-            var userResources = _mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(users);
-            return Ok(userResources);
+            try {
+                var users = await _userService.GetAllUsers();
+                if (users != null)
+                {
+                    var userResources = _mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(users);
+                    return Ok(userResources);
+                }
+                return NotFound("No users yet");
+            }
+
+            catch
+            {
+
+            }
+
+            return BadRequest("Error");
+           
         }
 
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserResource>> GetBlogById(int id)
+        public async Task<IActionResult> GetUserById(int id)
         {
-            var user = await _userService.GetUserById(id);
-            var userResources = _mapper.Map<User, UserResource>(user);
-            return userResources;
+            try
+            {
+                var user = await _userService.GetUserById(id);
+                if (user != null)
+                {
+                    var userResources = _mapper.Map<User, UserResource>(user);
+                    return Ok(userResources);
+                }
+                return NotFound($"No user with Id {id}");
+            }
+            catch
+            {
+
+            }
+            return BadRequest("Error");
+           
         }
 
         // POST api/User
         [HttpPost]
-        public async Task<ActionResult<User>> Post([FromBody] User user)
+        public async Task<IActionResult> Post([FromBody] User user)
         {
-            await _userService.CreateUser(user);
-            return user;
+            try
+            {
+                await _userService.CreateUser(user);
+                return Accepted("New user created");
+            }
+            catch
+            {
+
+            }
+            return BadRequest("Error");
         }
 
         // PUT api/Home/{id}
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] User newUser)
+        public async Task<IActionResult> Put(int id, [FromBody] User newUser)
         {
-            var user = await _userService.GetUserById(id);
-            _userService.UpdateUser(user, newUser);
+            try
+            {
+                var user = await _userService.GetUserById(id);
+                _userService.UpdateUser(user, newUser);
+                return Accepted($"User with Id {id} updated");
+            }
+            catch
+            {
+
+            }
+            return NotFound($"No user with Id {id}");
         }
 
         // DELETE api/Home/{id}
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var user = await _userService.GetUserById(id);
-            _userService.DeleteUser(user);
-            return NoContent();
+            try
+            {
+                var user = await _userService.GetUserById(id);
+                _userService.DeleteUser(user);
+                return Accepted($"User with Id {id} deleted");
+            }
+            catch
+            {
+
+            }
+            return NotFound($"No user with Id {id}");
         }
     }
 }

@@ -26,46 +26,104 @@ namespace BlogApi.Controllers
 
         //GET: api/values
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CommentResource>>> GetAllComments()
+        public async Task<IActionResult> GetAllComments()
         {
-            var comments = await _commentService.GetAllComments();
-            var commentResources = _mapper.Map<IEnumerable<Comment>, IEnumerable<CommentResource>>(comments);
-            return Ok(commentResources);
+            try
+            {
+                var comments = await _commentService.GetAllComments();
+                if (comments != null)
+                {
+                    var commentResources = _mapper.Map<IEnumerable<Comment>, IEnumerable<CommentResource>>(comments);
+                    return Ok(commentResources);
+                }
+                return NotFound($"No comments yet");
+            }
+            catch
+            {
+
+            }
+            return BadRequest("Error");
+           
         }
 
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CommentResource>> GetBlogById(int id)
+        public async Task<IActionResult> GetBlogById(int id)
         {
-            var comment = await _commentService.GetCommentById(id);
-            var commentResources = _mapper.Map<Comment, CommentResource>(comment);
-            return commentResources;
+            try
+            {
+                var comment = await _commentService.GetCommentById(id);
+                if (comment != null)
+                {
+                    var commentResources = _mapper.Map<Comment, CommentResource>(comment);
+                    return Ok(commentResources);
+                }
+                return NotFound($"No comment with Id {id}");
+            }
+            catch
+            {
+
+            }
+
+            return BadRequest("Error");
+
         }
 
         // POST api/values
         [HttpPost]
-        public Comment Post([FromBody] Comment comment)
+        public async Task<IActionResult> Post([FromBody] Comment comment)
         {
-            _commentService.CreateComment(comment);
-            return comment;
+            try
+            {
+                await _commentService.CreateComment(comment);
+                return Accepted("New comment created");
+            }
+
+            catch
+            {
+
+            }
+
+            return BadRequest("Error");
         }
 
         // PUT api/Comment/{id}
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] Comment newComment)
+        public async Task<IActionResult> Put(int id, [FromBody] Comment newComment)
         {
-            Comment comment = await _commentService.GetCommentById(id);
-            _commentService.UpdateComment(comment, newComment);
+            try
+            {
+                Comment comment = await _commentService.GetCommentById(id);
+                _commentService.UpdateComment(comment, newComment);
+                return Accepted($"Comment with Id {id} updated");
+            }
+
+            catch
+            {
+
+            }
+
+            return NotFound($"No comment with Id {id}");
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            Comment comment = await _commentService.GetCommentById(id);
-            _commentService.DeleteComment(comment);
-            return NoContent();
+            try
+            {
+                Comment comment = await _commentService.GetCommentById(id);
+                _commentService.DeleteComment(comment);
+                return Accepted($"Comment with Id {id} deleted");
+            }
+
+            catch
+            {
+
+            }
+
+            return NotFound($"No comment with Id {id}");
         }
     }
 }
