@@ -71,8 +71,13 @@ namespace BlogApi.Controllers
         {
             try
             {
-                await _userService.CreateUser(user);
-                return StatusCode(500);
+                if (ModelState.IsValid)
+                {
+                    await _userService.CreateUser(user);
+                    return StatusCode(201);
+                }
+                return StatusCode(400);
+             
             }
             catch
             {

@@ -34,7 +34,6 @@ namespace BlogApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllBlogs()
         {
-            var a = new BlogResource();
             try
             {
                 var blogs = await _blogService.GetAllBlogs();
@@ -78,8 +77,12 @@ namespace BlogApi.Controllers
         {
             try
             {
-                await _blogService.CreateBlog(blog);
-                return StatusCode(201);
+                if (ModelState.IsValid)
+                {
+                    await _blogService.CreateBlog(blog);
+                    return StatusCode(201);
+                }
+                return StatusCode(400);
             }
             catch 
             {
@@ -93,9 +96,17 @@ namespace BlogApi.Controllers
         {
             try
             {
-                Blog blog = await _blogService.GetBlogById(id);
-                _blogService.UpdateBlog(blog, newBlog);
-                return Ok($"Blog with Id {id} updated");
+                if (ModelState.IsValid)
+                {
+                    Blog blog = await _blogService.GetBlogById(id);
+                    if (blog == null)
+                    {
+                        return Ok($"No blog with id {id} found");
+                    }
+                    _blogService.UpdateBlog(blog, newBlog);
+                    return Ok($"Blog with Id {id} updated");
+                }
+                return StatusCode(400);
             }
             catch
             {
@@ -110,6 +121,10 @@ namespace BlogApi.Controllers
             try
             {
                 Blog blog = await _blogService.GetBlogById(id);
+                if (blog == null)
+                {
+                    return Ok($"No blog with id {id} found");
+                }
                 _blogService.DeleteBlog(blog);
                 return Ok($"Blog with Id {id} deleted");
             }

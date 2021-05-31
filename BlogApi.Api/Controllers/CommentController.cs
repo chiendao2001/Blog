@@ -72,8 +72,12 @@ namespace BlogApi.Controllers
         {
             try
             {
-                await _commentService.CreateComment(comment);
-                return StatusCode(201);
+                if (ModelState.IsValid)
+                {
+                    await _commentService.CreateComment(comment);
+                    return StatusCode(201);
+                }
+                return StatusCode(400);
             }
             catch
             {
@@ -88,9 +92,14 @@ namespace BlogApi.Controllers
         {
             try
             {
-                Comment comment = await _commentService.GetCommentById(id);
-                _commentService.UpdateComment(comment, newComment);
-                return Ok($"Comment with Id {id} updated");
+                if (ModelState.IsValid)
+                {
+                    Comment comment = await _commentService.GetCommentById(id);
+                    _commentService.UpdateComment(comment, newComment);
+                    return Ok($"Comment with Id {id} updated");
+                }
+                return StatusCode(400);
+               
             }
             catch
             {
