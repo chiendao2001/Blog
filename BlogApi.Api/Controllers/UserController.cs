@@ -35,16 +35,13 @@ namespace BlogApi.Controllers
                     var userResources = _mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(users);
                     return Ok(userResources);
                 }
-                return NotFound("No users yet");
+                return Ok("No users yet");
             }
 
             catch
             {
-
-            }
-
-            return BadRequest("Error");
-           
+                return StatusCode(500);
+            }           
         }
 
 
@@ -60,14 +57,12 @@ namespace BlogApi.Controllers
                     var userResources = _mapper.Map<User, UserResource>(user);
                     return Ok(userResources);
                 }
-                return NotFound($"No user with Id {id}");
+                return Ok($"No user with Id {id}");
             }
             catch
             {
-
-            }
-            return BadRequest("Error");
-           
+                return StatusCode(500);
+            }           
         }
 
         // POST api/User
@@ -77,13 +72,12 @@ namespace BlogApi.Controllers
             try
             {
                 await _userService.CreateUser(user);
-                return Accepted("New user created");
+                return StatusCode(500);
             }
             catch
             {
-
+                return StatusCode(500);
             }
-            return BadRequest("Error");
         }
 
         // PUT api/Home/{id}
@@ -94,13 +88,12 @@ namespace BlogApi.Controllers
             {
                 var user = await _userService.GetUserById(id);
                 _userService.UpdateUser(user, newUser);
-                return Accepted($"User with Id {id} updated");
+                return Ok($"User with Id {id} updated");
             }
             catch
             {
-
+                return StatusCode(500);
             }
-            return NotFound($"No user with Id {id}");
         }
 
         // DELETE api/Home/{id}
@@ -111,13 +104,12 @@ namespace BlogApi.Controllers
             {
                 var user = await _userService.GetUserById(id);
                 _userService.DeleteUser(user);
-                return Accepted($"User with Id {id} deleted");
+                return Ok($"User with Id {id} deleted");
             }
             catch
             {
-
+                return StatusCode(500);
             }
-            return NotFound($"No user with Id {id}");
         }
     }
 }

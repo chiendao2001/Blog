@@ -36,13 +36,12 @@ namespace BlogApi.Controllers
                     var commentResources = _mapper.Map<IEnumerable<Comment>, IEnumerable<CommentResource>>(comments);
                     return Ok(commentResources);
                 }
-                return NotFound($"No comments yet");
+                return Ok($"No comments yet");
             }
             catch
             {
-
+                return StatusCode(500);
             }
-            return BadRequest("Error");
            
         }
 
@@ -59,15 +58,12 @@ namespace BlogApi.Controllers
                     var commentResources = _mapper.Map<Comment, CommentResource>(comment);
                     return Ok(commentResources);
                 }
-                return NotFound($"No comment with Id {id}");
+                return Ok($"No comment with Id {id}");
             }
             catch
             {
-
+                return StatusCode(500);
             }
-
-            return BadRequest("Error");
-
         }
 
         // POST api/values
@@ -77,15 +73,13 @@ namespace BlogApi.Controllers
             try
             {
                 await _commentService.CreateComment(comment);
-                return Accepted("New comment created");
+                return StatusCode(201);
             }
-
             catch
             {
-
+                return StatusCode(500);
             }
 
-            return BadRequest("Error");
         }
 
         // PUT api/Comment/{id}
@@ -96,15 +90,13 @@ namespace BlogApi.Controllers
             {
                 Comment comment = await _commentService.GetCommentById(id);
                 _commentService.UpdateComment(comment, newComment);
-                return Accepted($"Comment with Id {id} updated");
+                return Ok($"Comment with Id {id} updated");
             }
-
             catch
             {
-
+                return StatusCode(500);
             }
 
-            return NotFound($"No comment with Id {id}");
         }
 
         // DELETE api/values/5
@@ -115,15 +107,13 @@ namespace BlogApi.Controllers
             {
                 Comment comment = await _commentService.GetCommentById(id);
                 _commentService.DeleteComment(comment);
-                return Accepted($"Comment with Id {id} deleted");
+                return Ok($"Comment with Id {id} deleted");
             }
 
             catch
             {
-
+                return StatusCode(500);
             }
-
-            return NotFound($"No comment with Id {id}");
         }
     }
 }

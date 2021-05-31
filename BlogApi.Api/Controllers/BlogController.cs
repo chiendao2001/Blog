@@ -43,13 +43,13 @@ namespace BlogApi.Controllers
                 {
                     return Ok(blogResources);
                 }
-                return NoContent();
+                return Ok("No blogs yet");
 
             }
             catch 
             {
+                return StatusCode(500);
             }
-            return Ok(a);
         }
 
         // GET api/Home
@@ -62,15 +62,14 @@ namespace BlogApi.Controllers
                 var blogResources = _mapper.Map<Blog, BlogResource>(blog);
                 if (blog == null)
                 {
-                    return NotFound($"No blog with Id {id}");
+                    return Ok($"No blog with Id {id}");
                 }
                 return Ok(blogResources);
             }
             catch
             {
-
+                return StatusCode(500);
             }
-            return BadRequest("Error");
         }
 
         // POST api/values
@@ -80,12 +79,12 @@ namespace BlogApi.Controllers
             try
             {
                 await _blogService.CreateBlog(blog);
-                return Accepted("New blog created");
+                return StatusCode(201);
             }
             catch 
             {
+                return StatusCode(500);
             }
-            return BadRequest("Error");
         }
 
         // PUT api/Home/{id}
@@ -96,13 +95,12 @@ namespace BlogApi.Controllers
             {
                 Blog blog = await _blogService.GetBlogById(id);
                 _blogService.UpdateBlog(blog, newBlog);
-                return Accepted($"Blog with Id {id} updated");
+                return Ok($"Blog with Id {id} updated");
             }
             catch
             {
-                
+                return StatusCode(500);
             }
-            return NotFound($"No blog with Id {id} found");
         }
 
         // DELETE api/Home/{id}
@@ -113,13 +111,12 @@ namespace BlogApi.Controllers
             {
                 Blog blog = await _blogService.GetBlogById(id);
                 _blogService.DeleteBlog(blog);
-                return Accepted($"Blog with Id {id} deleted");
+                return Ok($"Blog with Id {id} deleted");
             }
             catch
             {
-
+                return StatusCode(500);
             }
-            return NotFound($"No blog with Id {id} found");
         }
     }
 }
