@@ -32,7 +32,7 @@ namespace BlogApi.Controllers
 
         // GET: api/Home
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Blog>>> GetAllBlogs()
+        public async Task<IActionResult> GetAllBlogs()
         {
             var a = new BlogResource();
             try
@@ -54,7 +54,7 @@ namespace BlogApi.Controllers
 
         // GET api/Home
         [HttpGet("{id}")]
-        public async Task<ActionResult<BlogResource>> GetBlogById(int id)
+        public async Task<IActionResult> GetBlogById(int id)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace BlogApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task<ActionResult<string>> Post([FromBody] Blog blog)
+        public async Task<IActionResult> Post([FromBody] Blog blog)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace BlogApi.Controllers
 
         // PUT api/Home/{id}
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] Blog newBlog)
+        public async Task<IActionResult> Put(int id, [FromBody] Blog newBlog)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace BlogApi.Controllers
 
         // DELETE api/Home/{id}
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
